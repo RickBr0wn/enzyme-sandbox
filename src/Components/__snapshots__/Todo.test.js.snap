@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todo /> should render correctly 1`] = `
+<div
+  className="todo-container"
+>
+  <h1>
+    TODO Component
+  </h1>
+  <ul>
+    <li
+      className="todo-item"
+    >
+      Go jogging
+    </li>
+    <li
+      className="todo-item"
+    >
+      Ride a bike
+    </li>
+    <li
+      className="todo-item"
+    >
+      Write more tests
+    </li>
+  </ul>
+</div>
+`;
