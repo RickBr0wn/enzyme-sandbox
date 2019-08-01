@@ -1,19 +1,12 @@
 import React from 'react'
-import logo from '../Assets/logo.png'
-import PropTypes from 'prop-types'
+import Header from './Header'
 
-const Blog = props => {
+const Blog = () => {
   return (
-    <header>
-      <div className='container'>
-        <div className='logo'>
-          <img src={logo} alt='blog logo' />
-        </div>
-      </div>
-    </header>
+    <div className='blog-component'>
+      <Header />
+    </div>
   )
 }
-
-Blog.propTypes = {}
 
 export default Blog
