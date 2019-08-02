@@ -1,6 +1,10 @@
 import React from 'react'
 import Header from './Header'
 import Headline from './Headline'
+import Button from './Button'
+import ListItem from './ListItem'
+import { connect } from 'react-redux'
+import { fetchPosts } from '../Actions'
 
 const postedBy = [
   {
@@ -12,7 +16,12 @@ const postedBy = [
   }
 ]
 
-const Blog = () => {
+const Blog = ({ onFetchPosts }) => {
+  const buttonConfig = {
+    buttonText: 'Get Posts',
+    emitFunction: onFetchPosts
+  }
+
   return (
     <div className='blog-component'>
       <Header />
@@ -22,9 +31,18 @@ const Blog = () => {
           desc='Click the button to see blog posts..'
           postedBy={postedBy}
         />
+        <Button {...buttonConfig} />
+        <ListItem />
       </section>
     </div>
   )
 }
 
-export default Blog
+const mapStateToProps = state => ({ posts: state.posts })
+
+const mapDispatchToProps = () => ({ onFetchPosts: fetchPosts })
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Blog)

@@ -13,7 +13,7 @@ body {
 }
 
 /* Counter Coumponent */
-button {
+.button {
   font-size: 28px;
   margin: 10px;
   width: 60px;
@@ -65,4 +65,15 @@ header {
   max-width: 980px;
   margin: 20px auto 80px;
   padding: 0 10px;
+}
+
+/* Button */
+.btn {
+  background: blue;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
 }
