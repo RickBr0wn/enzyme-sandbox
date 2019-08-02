@@ -7,6 +7,7 @@ import { findByDataTestAttribute, checkPropTypesForErrors } from '../Helpers'
 configure({ adapter: new Adapter() })
 
 const setUp = (props = {}) => shallow(<Headline {...props} />)
+
 const TEST_STR = 'Test String'
 const TEST_NUM = 1
 const TEST_BOOL = false
