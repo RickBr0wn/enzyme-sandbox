@@ -6,11 +6,13 @@ const Counter = ({ initialValue }) => {
     <div>
       <p>{`Count: ${counter}`}</p>
       <div>
-        <button className='increment' onClick={() => setCounter(counter + 1)}>
+        <button
+          className='button increment'
+          onClick={() => setCounter(counter + 1)}>
           +
         </button>
         <button
-          className='decrement'
+          className='button decrement'
           onClick={() => (counter === 0 ? null : setCounter(counter - 1))}>
           -
         </button>
