@@ -3,28 +3,25 @@ import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import Headline from './Headline'
 import { findByDataTestAttribute, checkPropTypesForErrors } from '../Helpers'
+import { CONSTANTS } from '../Helpers/Constants'
 
 configure({ adapter: new Adapter() })
 
 const setUp = (props = {}) => shallow(<Headline {...props} />)
 
-const TEST_STR = 'Test String'
-const TEST_NUM = 1
-const TEST_BOOL = false
-
 describe('<Headline />', () => {
   describe('PropTypes', () => {
     it('should not throw a warning', () => {
       const expectedProps = {
-        header: TEST_STR,
-        desc: TEST_STR,
+        header: CONSTANTS.TEST_STR,
+        desc: CONSTANTS.TEST_STR,
         postedBy: [
           {
-            fName: TEST_STR,
-            lName: TEST_STR,
-            email: TEST_STR,
-            age: TEST_NUM,
-            online: TEST_BOOL
+            fName: CONSTANTS.TEST_STR,
+            lName: CONSTANTS.TEST_STR,
+            email: CONSTANTS.TEST_STR,
+            age: CONSTANTS.TEST_NUM,
+            online: CONSTANTS.TEST_BOOL
           }
         ]
       }
@@ -35,7 +32,13 @@ describe('<Headline />', () => {
 
   describe('with props', () => {
     let wrapper
-    beforeEach(() => (wrapper = setUp({ header: TEST_STR, desc: TEST_STR })))
+    beforeEach(
+      () =>
+        (wrapper = setUp({
+          header: CONSTANTS.TEST_STR,
+          desc: CONSTANTS.TEST_STR
+        }))
+    )
 
     it('should render without errors', () => {
       const component = findByDataTestAttribute(wrapper, 'headline-component')
