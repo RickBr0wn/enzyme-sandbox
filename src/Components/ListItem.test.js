@@ -32,8 +32,8 @@ describe('<ListItem />', () => {
     })
 
     it('should render without error', () => {
-      const button = findByDataTestAttribute(wrapper, 'list-component')
-      expect(button.length).toBe(1)
+      const component = findByDataTestAttribute(wrapper, 'list-component')
+      expect(component.length).toBe(1)
     })
 
     it('should render a title', () => {

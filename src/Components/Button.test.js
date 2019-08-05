@@ -14,7 +14,7 @@ describe('<Button />', () => {
     it('should NOT throw a warning', () => {
       const expectedProps = {
         buttonText: CONSTANTS.TEST_STR,
-        emitFunction: () => {}
+        emitEvent: () => {}
       }
 
       expect(checkPropTypesForErrors(Button, expectedProps)).toBeUndefined()
@@ -27,7 +27,7 @@ describe('<Button />', () => {
     beforeEach(() => {
       wrapper = setUp({
         buttonText: CONSTANTS.TEST_STR,
-        emitFunction: CONSTANTS.TEST_FUNC
+        emitEvent: CONSTANTS.TEST_FUNC
       })
     })
 

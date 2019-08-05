@@ -5,6 +5,7 @@ import Button from './Button'
 import ListItem from './ListItem'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../Actions'
+import uuid from 'react-uuid'
 
 const postedBy = [
   {
@@ -16,14 +17,14 @@ const postedBy = [
   }
 ]
 
-const Blog = ({ onFetchPosts }) => {
+const Blog = ({ posts, onFetchPosts }) => {
   const buttonConfig = {
     buttonText: 'Get Posts',
-    emitFunction: onFetchPosts
+    emitEvent: onFetchPosts
   }
 
   return (
-    <div className='blog-component'>
+    <div data-test='blog-component'>
       <Header />
       <section className='main'>
         <Headline
@@ -32,7 +33,15 @@ const Blog = ({ onFetchPosts }) => {
           postedBy={postedBy}
         />
         <Button {...buttonConfig} />
-        <ListItem />
+        {posts.length > 0 && (
+          <div>
+            {posts.map(post => (
+              <ListItem key={uuid()} {...post} />
+            ))}
+          </div>
+        )}
+
+        {console.log('posts', posts)}
       </section>
     </div>
   )
@@ -40,7 +49,9 @@ const Blog = ({ onFetchPosts }) => {
 
 const mapStateToProps = state => ({ posts: state.posts })
 
-const mapDispatchToProps = () => ({ onFetchPosts: fetchPosts })
+const mapDispatchToProps = {
+  onFetchPosts: fetchPosts
+}
 
 export default connect(
   mapStateToProps,

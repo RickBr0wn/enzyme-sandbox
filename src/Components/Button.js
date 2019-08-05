@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ buttonText, emitFunction }) => {
+const Button = ({ buttonText, emitEvent }) => {
   return (
     <button
       className='btn'
       data-test='button-component'
-      onClick={() => (emitFunction ? emitFunction() : null)}>
+      onClick={emitEvent ? () => emitEvent() : null}>
       {buttonText}
     </button>
   )
@@ -14,7 +14,7 @@ const Button = ({ buttonText, emitFunction }) => {
 
 Button.propTypes = {
   buttonText: PropTypes.string.isRequired,
-  emitFunction: PropTypes.func.isRequired
+  emitEvent: PropTypes.func.isRequired
 }
 
 export default Button

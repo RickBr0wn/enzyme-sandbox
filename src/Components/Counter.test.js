@@ -6,9 +6,19 @@ import Counter from './Counter'
 
 configure({ adapter: new Adapter() })
 
+const setUp = (props = {}) => {
+  return shallow(<Counter {...props} />)
+}
+
 describe('<Counter />', () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = setUp()
+  })
+
   it('should start with a Count of zero with no props passed', () => {
-    const wrapper = shallow(<Counter />)
+    // const wrapper = shallow(<Counter />)
     const text = wrapper.find('p').text()
     expect(text).toEqual('Count: 0')
   })

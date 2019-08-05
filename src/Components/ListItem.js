@@ -5,7 +5,7 @@ const ListItem = ({ title, body }) => {
   if (!title) return null
   return (
     <div data-test='list-component'>
-      <p data-test='list-component-title'>{title}</p>
+      <h2 data-test='list-component-title'>{title}</h2>
       <p data-test='list-component-body'>{body}</p>
     </div>
   )

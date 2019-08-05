@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { TYPES } from './Types/types'
-import { CONSTANTS } from '../Helpers/Constants'
 
 export const fetchPosts = () => async dispatch => {
   await axios
